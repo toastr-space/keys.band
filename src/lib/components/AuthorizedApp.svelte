@@ -36,7 +36,7 @@
 		</div>
 	</div>
 	<div class="justify-between items-stretch flex gap-5 mt-2">
-		<div class="text-black dark:text-white text-2xl font-semibold leading-7">{domain}</div>
+		<div class="text-black dark:text-white text-2xl font-semibold leading-7 truncate">{domain}</div>
 		<div class="bg-opacity-50">
 			<button
 				class="btn btn-sm text-gray-500 px-0 py-0"

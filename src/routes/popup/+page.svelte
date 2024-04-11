@@ -50,6 +50,17 @@
 
 <div class="w-full h-full flex flex-col p-4 mx-auto items-center dark:bg-[#222222] bg-white">
 	{#if parameter?.url}
+		{#if 'previousProfile' in parameter && parameter.previousProfile.id !== $userProfile.id}
+			<span
+				class="alert alert-warning bg-yellow-300 text-black mb-2 flex flex-row items-center text-sm p-2 gap-2"
+			>
+				<Icon icon="pixelarticons:alert" width={56} />
+				<span>
+					You are using another account for this request <br />
+					Previous profile: {parameter.previousProfile.name}
+				</span>
+			</span>
+		{/if}
 		<div class="w-full bg-surface-400 rounded-lg dark:bg-black bg-opacity-50 h-[72px]">
 			<div
 				class="text-gray-800 dark:text-gray-400 text-opacity-70 font-semibold leading-4 tracking-[3px] flex flex-row items-center gap-2 p-2"

@@ -31,6 +31,7 @@ interface PopupParams {
 	requestId?: string | undefined;
 	origin?: string;
 	permissions?: string[];
+	previousProfile?: Profile;
 }
 
 interface SessionManager {

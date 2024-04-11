@@ -80,6 +80,7 @@ interface Browser {
 	injectJsInTab: (tab: chrome.tabs.Tab, jsFileName: string) => Promise<void>;
 	injectJsinAllTabs: (jsFileName: string) => Promise<void>;
 	createWindow: (url: string) => Promise<chrome.windows.Window>;
+	switchIcon: (activeInfo: { tabId: number }) => Promise<void>;
 	sendAuthorizationResponse: (
 		yes: boolean,
 		choice: number,

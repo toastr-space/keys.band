@@ -60,6 +60,7 @@ const loadTheme = async (): Promise<void> => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const value = await browser.get('theme');
+			if ("theme" in value === false) browser.set({ theme: "dark" });
 			if (value?.theme !== 'dark') {
 				theme.set(value?.theme as string);
 				document.documentElement.classList.remove('dark');
@@ -70,6 +71,8 @@ const loadTheme = async (): Promise<void> => {
 			}
 			resolve();
 		} catch (err) {
+			theme.set('dark');
+			document.documentElement.classList.add('dark');
 			reject(err);
 		}
 	});

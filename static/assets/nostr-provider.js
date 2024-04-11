@@ -59,7 +59,6 @@ window.nostr = {
 };
 
 window.addEventListener("message", (message) => {
-  console.log(message.data);
   if (
     !message.data ||
     message.data.response === null ||
@@ -70,9 +69,6 @@ window.addEventListener("message", (message) => {
     return;
 
   if (message.data.response.error) {
-    if (message.data.response.error.code === 'invalid_public_key') {
-      alert('Invalid public key, please switch to the correct account and refresh the page');
-    }
     let error = new Error("keys.band: " + message.data.response.error.message);
     error.stack = message.data.response.error.stack;
     window.nostr._requests[message.data.id].reject(error);
